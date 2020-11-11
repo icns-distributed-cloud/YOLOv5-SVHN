@@ -24,7 +24,7 @@ def create(name, pretrained, channels, classes):
     try:
         model = Model(config, channels, classes)
         if pretrained:
-            fname = f'{name}.pt'  # checkpoint filename
+            fname = os.path.join(os.path.dirname(__file__), 'models', f'{name}.pt'  # checkpoint filename
             ckpt = torch.load(fname, map_location=torch.device('cpu'))  # load
             state_dict = ckpt['model'].float().state_dict()  # to FP32
             state_dict = {k: v for k, v in state_dict.items() if model.state_dict()[k].shape == v.shape}  # filter
