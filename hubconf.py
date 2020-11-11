@@ -40,10 +40,10 @@ def create(name, pretrained, channels, classes):
         raise Exception(s) from e
 
 
-def svhn(pretrained=False, channels=3, classes=11):
+def svhn(pretrained=True, channels=3, classes=11):
     """SVHN model based on YOLOv5-small model from https://github.com/ultralytics/yolov5
     Arguments:
-        pretrained (bool): load pretrained weights into the model, default=False
+        pretrained (bool): load pretrained weights into the model, default=True
         channels (int): number of input channels, default=3
         classes (int): number of model classes, default=11
     Returns:
